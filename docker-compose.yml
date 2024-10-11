@@ -16,4 +16,4 @@ volumes:
     driver_opts:
       type: 'none'
       o:    'bind'
-      device: /home/dhorvath/ascension/frontend/src # change for local machine
+      device: ./frontend/src # change for local machine
