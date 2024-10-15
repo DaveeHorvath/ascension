@@ -16,4 +16,12 @@ volumes:
     driver_opts:
       type: 'none'
       o:    'bind'
-      device: /home/dhorvath/ascension/frontend/src # change for local machine
+      device: ~/volumes # change for local machine
+
+  postgres_data:
+    name: postgres_data
+
+networks:
+  transc_network:
+    name: transc_network
+    driver: bridge
