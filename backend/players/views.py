@@ -41,6 +41,21 @@ def create_player(request):
 
     return JsonResponse({'error': 'Invalid request method'}, status=405)
 
+def get_player_meta_info(request):
+    if request.method == 'GET':
+        players = Player.objects.all()
+        
+        # Convert the QuerySet to a list of dictionaries for serialization
+        players_list = [{
+            'display_name': player.display_name,
+            'createdAt': player.created_at,
+            'updatedAt': player.updated_at,
+        } for player in players]
+
+        return JsonResponse(players_list, safe=False, status=200)
+    
+    return JsonResponse({'error': 'Invalid request method'}, status=405)
+
 # def upload_avatar(request, player_id):
 #     if request.method == 'POST':
 #         avatar = request.FILES.get('avatar')
