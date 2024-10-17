@@ -1,7 +1,0 @@
-David:
-    finished:
-	graphics, browsers, frontend toolkit
-
-Taavi:
-    in progress:
-    	42auth, 2FA, app security

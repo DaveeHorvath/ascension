@@ -17,9 +17,14 @@ MATCH_STATUS_CHOICES = [
     ('completed', 'Completed')
 ]
 
-FRIEND_ACTIVITY_STATUS_CHOICES = [
+ACTIVITY_STATUS_CHOICES = [
     ('online', 'Online'),
     ('offline', 'Offline')
 ]
 
+FRIENDSHIP_STATUS_CHOICES = [
+    ('pending_first_second', 'Pending (first -> second)'),
+    ('pending_second_first', 'Pending (second -> first)'),
+    ('friends', 'Friends')
+]
 # Other constants to specify

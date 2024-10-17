@@ -6,6 +6,7 @@ services:
       - '8443:8443'
     volumes:
       - ./frontend/src:/var/www/html
+      - ./backend/media:/media
     networks:
       - transc_network
     depends_on:
