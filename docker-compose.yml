@@ -53,7 +53,7 @@ volumes:
     driver_opts:
       type: 'none'
       o:    'bind'
-      device: ~/Documents/tutorials-training/hive/projects/ascension/src # change for local machine
+      device: ./frontend/src
 
   postgres_data:
     name: postgres_data

@@ -87,7 +87,6 @@ window.startGame = () => {
                 cur.position.x = -22 + i;
                 cur.position.y = 11.25 + row;
                 cur.position.z = 0;
-
                 edges = new THREE.EdgesGeometry(outerboxgeometry);
                 line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0xffffff }));
 
@@ -102,37 +101,127 @@ window.startGame = () => {
             }
         })
     }
-
+    
     // function registered as an event listener to keydown events
-    function movement(e) {
-        if (ai == 0) {
-            if (e.which == 38)
-                playe1Delta = playerSpeed
-            else if (e.which == 40)
-                playe1Delta = -playerSpeed
-        }
-        if (ai < 2) {
-            if (e.which == 87)
-                playe2Delta = playerSpeed
-            else if (e.which == 83)
-                playe2Delta = -playerSpeed
-        }
+    // 38 = ArrowUp, 40 = ArrowDown, 87 = w, 83 = s
+    function movement (e) {
+        let code = e.which;
+        if (code == 38)
+            playe1Delta = playerSpeed
+        else if (code == 40)
+            playe1Delta = -playerSpeed
+        else if (code == 87)
+            playe2Delta = playerSpeed
+        else if (code == 83)
+            playe2Delta = -playerSpeed
     }
-
+    
     // registered as keyup listener, cleares the movement of the players
-    function clear(e) {
-        console.log(e.which)
-        if (ai == 1 || ai == 0 && (e.which == 87 || e.which == 83 && playe2Delta != 0))
+    // 38 = ArrowUp, 40 = ArrowDown, 87 = w, 83 = s
+    function clear(e)
+    {
+        let code = e.which;
+        if ((code == 87 || code == 83 && playe2Delta != 0))
             playe2Delta = 0
-        if (ai == 0 && (e.which == 40 || e.which == 38 && playe1Delta != 0))
+        if ((code == 40 || code == 38) && playe1Delta != 0)
             playe1Delta = 0
     }
-
+    
     // util function
-    var render = function () {
+    var render = function() {
         renderer.render(scene, camera);
     };
+    // AI Algo part
+    // settging for the AI
+    let timeIntervalAi = 1;  // must to be 1 according to the subject
+    let clockAi = new THREE.Clock();
+    let deltaTimeAi = 0;
+    let r0 = {x: ball.position.x, y: ball.position.y};
+    let r1 = {x: player1.position.x, y: player1.position.y};
+    let r2 = {x: player2.position.x, y: player2.position.y};
+    let v0 = {x: ballvelocity.x, y: ballvelocity.y};
+    let w = 40; // width of the game area
+    let h = 20;// hight  = hegith of the game area - height of the player
+    let yPredictionNoBorders = [0, 0];
+    let yPrediction = 0;
+    let hightFromBorders = 0;
+    let epsilon = 1;
+    playe1Delta = 0;
 
+
+    // this function is used to simulate key presses. 
+    // Only for ArrowUp and ArrowDown
+    function simulateArrowKey(keyUpDown, key) {
+        if (!(key == 'ArrowDown' || key == 'ArrowUp'))
+            return;
+        let numCode = 40
+        if (key == 'ArrowUp')
+            numCode = 38
+        else if (key == 'ArrowDown')
+            numCode = 40
+        const event = new KeyboardEvent(keyUpDown, {
+            key: key,
+            code: key,
+            keyCode: numCode, 
+            bubbles: true, // Ensure the event bubbles up
+            cancelable: true
+        });
+        document.dispatchEvent(event);
+    }
+
+    function runAi()
+    {
+        deltaTimeAi += clockAi.getDelta();
+        if (deltaTimeAi > timeIntervalAi){
+            r0 = {x: ball.position.x, y: ball.position.y};
+            v0 = {x: ballvelocity.x, y: ballvelocity.y};
+            v0 = v0.x == 0 ? {x: 0.0001, y: v0.y} : v0;
+            yPredictionNoBorders = [
+                r0.y + (-w/2 - r0.x) * v0.y / v0.x, 
+                r0.y + ( w/2 - r0.x) * v0.y / v0.x
+            ];
+            hightFromBorders = Math.abs(yPredictionNoBorders[v0.x > 0 ? 1 : 0]) - h / 2;
+            if (hightFromBorders < 0)
+                yPrediction = yPredictionNoBorders[v0.x > 0 ? 1 : 0];
+            else
+                yPrediction = (h/2 - hightFromBorders % h) * Math.sign(v0.y) 
+                    * Math.pow(-1, Math.floor(hightFromBorders / h) % 2);
+            deltaTimeAi = 0;
+        }        
+        if (ai >= 1)
+        {
+            r1 = {x: player1.position.x, y: player1.position.y};
+            if (v0.x > 0 && Math.abs(r1.y - yPrediction) > epsilon) {
+                if (r1.y - yPrediction > epsilon && playe1Delta >= 0){ // need to move down
+                    if (playe1Delta > 0)
+                        simulateArrowKey('keyup','ArrowUp');
+                    if (playe1Delta >= 0)
+                        simulateArrowKey('keydown','ArrowDown');
+                }
+                else if (r1.y - yPrediction < epsilon && playe1Delta <= 0){  // need to move up
+                    if (playe1Delta < 0)
+                        simulateArrowKey('keyup','ArrowDown');
+                    if (playe1Delta <= 0)
+                        simulateArrowKey('keydown','ArrowUp');
+                }
+            }
+            else {
+                if (playe1Delta < 0)
+                    simulateArrowKey('keyup','ArrowDown');
+                if (playe1Delta > 0)
+                    simulateArrowKey('keyup','ArrowUp');
+            }
+        }
+        // Test AI that just jumps to the ball position without any prediction
+        // it is simplest solution that always wins the AI opponent
+        if (ai == 2)
+        {
+            playe2Delta = 0;
+            player2.position.y = ball.position.y
+            player2outline.position.y = ball.position.y
+        }
+    }
+ 
     /* ----- loop setup ----- */
     // start a clock
     let clock = new THREE.Clock();
@@ -140,22 +229,6 @@ window.startGame = () => {
     let delta = 0;
     // 75 max fps
     let interval = 1 / 75;
-
-    // subject to change by Alex
-    function runAi() {
-        if (ai >= 1) {
-            if (Math.abs(player1.position.y - ball.position.y) > 1 && Math.abs(player1.position.x - ball.position.x) < 22)
-                playe1Delta = (player1.position.y - ball.position.y) * -playerSpeed
-            else
-                playe1Delta = 0
-        }
-        if (ai == 2) {
-            if (Math.abs(player2.position.y - ball.position.y) > 1 && Math.abs(player2.position.x - ball.position.x) < 22)
-                playe2Delta = (player2.position.y - ball.position.y) * -playerSpeed
-            else
-                playe2Delta = 0
-        }
-    }
 
     function loop() {
         if (ai != 0)
@@ -199,7 +272,6 @@ window.startGame = () => {
                 ballvelocity.y *= -1
             }
 
-
             // check if player can interact with the ball
             // all bounces are assumed to be perfect and dont apply any modifications
             // player can interact if: 
@@ -207,24 +279,41 @@ window.startGame = () => {
             //      y is at most the distance of their combined height/2
             // the /2 is because the position is the center of the obj
             if (Math.abs(ball.position.x - player1.position.x) <= player1.scale.x / 2 + ball.scale.x / 2 &&
-                Math.abs(ball.position.y - player1.position.y) <= player1.scale.y / 2 + ball.scale.y) {
+            Math.abs(ball.position.y - player1.position.y) <= player1.scale.y / 2 + ball.scale.y)
+            {
                 ball.position.x = player1.position.x - player1.scale.x / 2 - ball.scale.x / 2 - 0.01
-                ballvelocity.x *= -1
+                if (Math.pow(ballvelocity.x,2) + Math.pow(ballvelocity.y,2) < 1000){
+                    ballvelocity.x *= -1.2
+                    ballvelocity.y *= 1.2
+                }
+                else
+                    ballvelocity.x *= -1
             }
             if (Math.abs(ball.position.x - player2.position.x) <= player2.scale.x / 2 + ball.scale.x / 2 &&
-                Math.abs(ball.position.y - player2.position.y) <= player2.scale.y / 2 + ball.scale.y) {
+            Math.abs(ball.position.y - player2.position.y) <= player2.scale.y / 2 + ball.scale.y)
+            {
                 ball.position.x = player2.position.x + player2.scale.x / 2 + ball.scale.x / 2 + 0.01
-                ballvelocity.x *= -1
+                //ballvelocity.x *= -1
+                if (Math.pow(ballvelocity.x,2) + Math.pow(ballvelocity.y,2) < 1000){
+                    ballvelocity.x *= -1.2
+                    ballvelocity.y *= 1.2
+                }
+                else {
+                    ballvelocity.x *= -1
+                }
             }
 
             // move the ball the appropriate amount
             ball.position.x += ballvelocity.x * delta
             ball.position.y += ballvelocity.y * delta
-
+            
             // check for goals and just reset position: subject to change
-            if (ball.position.x > 21 || ball.position.x < -21) {
+            if (ball.position.x > 21 || ball.position.x < -21 )
+            {
                 ball.position.x = 0
                 ball.position.y = 0
+                ballvelocity = {x: Math.sign(ballvelocity.x) * ballPower, y: Math.sign(ballvelocity.y) * ballPower}
+                deltaTimeAi = 2;
             }
 
             // update each outer box height based on sin to create a wave effect
