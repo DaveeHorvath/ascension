@@ -469,6 +469,8 @@ window.startGame = (ai) => {
                 gameResult = "Game ended";
                 gameOverFlag = 1
                 cancelAnimationFrame(animationId);
+                const gameDoneEvent = new CustomEvent("gameDone", {player1Score: gameCount[0], player2Score: gameCount[1], time: clock.elapsedTime})
+                window.dispatchEvent(gameDoneEvent);
                 return gameResult; 
 
             }

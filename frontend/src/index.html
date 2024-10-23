@@ -172,6 +172,12 @@
 					openable.style.display = 'none'
 				}
 			}
+			window.addEventListener("gameDone", 
+				(e) => {
+					// add the innertext updates here for the html
+					console.log("scores player1: " + e.player1Score + " player2: " + e.player2Score + " in " + e.time + "seconds")
+				}
+			)
 		</script>
 		<script>
 			let gameWindow = document.getElementById("gameWindow")
