@@ -373,7 +373,7 @@ window.startGame = (ai) => {
 
     let ball1TouchPositionY = hight / 2 - 1.5
     let gameCount = [0, 0]
-    let gameOverFlag = 0
+    //let gameOverFlag = 0
     
     console.log("player1 scale=", player1.scale.y, "ball scale=", ball1.scale.y)
     function loop() {
@@ -467,7 +467,7 @@ window.startGame = (ai) => {
             if (gameCount[0] == maxScore || gameCount[1] == maxScore){
                 console.log("Game ended", gameCount)
                 gameResult = "Game ended";
-                gameOverFlag = 1
+                //gameOverFlag = 1
                 cancelAnimationFrame(animationId);
                 return gameResult; 
 
