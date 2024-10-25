@@ -56,6 +56,41 @@
 				background-color: rgba(83, 83, 83, 0.5);
 				display: none;
 			}
+<<<<<<< Updated upstream
+=======
+
+			.fold {
+				width: 30vw;
+				height: 100vh;
+				background-color: rgba(255, 255, 255, 0.8);
+				position: absolute;
+				top:0;
+				left: 0;
+			}
+			#openside {
+				position: absolute;
+				top: 50%;
+				left: 30vw;
+				font-size: large;
+			}
+
+			#gameWindow {
+				width: 96vw;
+				height: 96vh;
+				position: absolute;
+				top: 2vh;
+				left: 2vw;
+				display: none;
+				background: #ffffff;
+				border: 2px solid white;
+				box-sizing: content-box;
+			}
+			.absolute {
+				position: absolute;
+				top: 10px;
+				left: 20px;
+			}
+>>>>>>> Stashed changes
 			</style>
 	</head>
 	<body>
@@ -118,5 +153,117 @@
             }
         </script>
 		<script type="module" src="/base.js"></script>
+<<<<<<< Updated upstream
+=======
+		<script type="module" src="/main.js"></script>
+		<script>
+			let isOpen = true
+			let openable = document.getElementById("userInfo")
+			let opener = document.getElementById("openside")
+			let toggleSide = () => {
+				console.log("here")
+				isOpen = !isOpen
+				if (isOpen)
+				{
+					opener.innerText = "<"
+					opener.style.left = window.innerWidth * 0.3 + "px"
+					openable.style.width = window.innerWidth * 0.3 + "px"
+					openable.style.display = 'block'
+				}
+				else
+				{
+					opener.innerText = ">"
+					opener.style.left = 0
+					openable.style.width = 0
+					openable.style.display = 'none'
+				}
+			}
+		</script>
+		<script>
+			let gameWindow = document.getElementById("gameWindow")
+			//async function  startOff() {
+			function  startOff() {
+				gameWindow.style.display = "block"
+				//let result = await startGame()
+				// startGame(ai)
+				// ai = 2 two AIs: AI vs god level AI
+				// ai = 1 one AI vs human
+				// ai = 0 two humans
+				// (to be implemented) ai = -2 four humans
+				let result = startGame(-2)
+				console.log("index.html result from startGame=", result)
+				//gameWindow.style.display = "none"
+				// startGame().then(result => {
+     			//  	console.log("result =", result);  // Log the result
+      			//  	gameWindow.style.display = "none";  // Hide the game window after the game finishes
+    			// }	
+			}
+		</script>
+		<script>
+			window.state = {
+				// max size 4
+				loggedInUsers: [
+					{"displayname": "", "avatar": "", "session": "", "gamesPlayed": 0, "winrate": 0.0},
+					{"displayname": "", "avatar": "", "session": "", "gamesPlayed": 0, "winrate": 0.0},
+					{"displayname": "", "avatar": "", "session": "", "gamesPlayed": 0, "winrate": 0.0}
+				],
+				// max 5
+				recentMatches: [
+					{"winner": "", "loser": "", "score": "11:2"},
+					{"winner": "", "loser": "", "score": "11:2"},
+					{"winner": "", "loser": "", "score": "11:2"},
+					{"winner": "", "loser": "", "score": "11:2"}
+				],
+				// max 5
+				tournaments: [
+					{"name": "", "status": "", "winner": "", "runnerUp": "", "created": "", "ended": ""},
+					{"name": "", "status": "", "winner": "", "runnerUp": "", "created": "", "ended": ""},
+					{"name": "", "status": "", "winner": "", "runnerUp": "", "created": "", "ended": ""},
+					{"name": "", "status": "", "winner": "", "runnerUp": "", "created": "", "ended": ""}
+				]
+			}
+			window.tournamentState = {
+				// exactly 4, could require to match loggedin
+				players: [
+					{"name": "", "winrate": 0.0},
+					{"name": "", "winrate": 0.0},
+					{"name": "", "winrate": 0.0},
+					{"name": "", "winrate": 0.0}
+				],
+				status: "",
+				name: "",
+				matches: [
+					{"p1": "", "p2": "", "status": "", "score?": ""}
+				]
+			}
+			let userinfo = {
+				allMatches: [
+					{"winner": "", "loser": "", "score": "11:2"},
+					{"winner": "", "loser": "", "score": "11:2"},
+					{"winner": "", "loser": "", "score": "11:2"},
+					{"winner": "", "loser": "", "score": "11:2"}
+				],
+				winrate: 0.0
+			}
+
+			window.updateRecentGames = () => {
+				let res = fetch("localhost:8000/recentMatches")
+				if (res.ok)
+				{
+					window.state.recentMatches = res.json();
+				}
+				updateRecentMatchesView();
+			}
+			window.updateRecentMatchView = () => {
+				let i = 0
+				let recentMatchesBoxes = document.getElementsByClassName("recentMatchesBoxes")
+				recentMatchesBoxes.forEach(element => {
+					let match = window.state.recentMatches[i++]
+					element.innerText = match.winner + " " + match.loser + " " + match.score
+				});
+			}
+		</script>
+	
+>>>>>>> Stashed changes
 	</body>
 </html>
