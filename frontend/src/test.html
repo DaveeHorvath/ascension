@@ -1,88 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Keania One"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Acme&display=swap"
-      rel="stylesheet"
-    />
-    <link href="./styles.css" rel="stylesheet" />
-    <style>
-      #enviroment {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        padding: 0;
-        z-index: -1;
-      }
-    </style>
-  </head>
-  <div id="enviroment"></div>
-  <body>
-    <section id="lobby">
-      <div class="navigation-header-container">
-        <div class="navigation-header-wrapper">
-          <div class="navigation-header-logo">
-            <h1 class="navigation-header-logo-text">P</h1>
-            <img
-              loading="lazy"
-              src="./assets/app_logo.png"
-              alt="App Logo"
-              class="app-logo"
-            />
-            <h1 class="navigation-header-logo-text">NG</h1>
-          </div>
-          <div class="navigation-header-content">
-            <p class="navigation-header-item" onclick="goToHomeNavigation()">
-              HOME
-            </p>
-            <p class="navigation-header-item" onclick="goToAboutNavigation()">
-              ABOUT
-            </p>
-            <p
-              class="navigation-header-item"
-              onclick="goToSettingsNavigation()"
-            >
-              SETTINGS
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="homeLeft half">
-        <div class="player-brief-info-panel">
-          <h1 class="auth-title">Add player</h1>
-          <button onclick="goToSignup()" class="auth-button" type="button">
-            Sign up
-          </button>
-          <button onclick="goToSignin()" class="auth-button" type="button">
-            Sign in
-          </button>
-        </div>
-        <div class="player-brief-info-panel">
-          <h1 class="auth-title">Add player</h1>
-          <button onclick="goToSignup()" class="auth-button" type="button">
-            Sign up
-          </button>
-          <button onclick="goToSignin()" class="auth-button" type="button">
-            Sign in
-          </button>
-        </div>
-        <div class="player-brief-info-panel">
-          <h1 class="auth-title">Add player</h1>
-          <button onclick="goToSignup()" class="auth-button" type="button">
-            Sign up
-          </button>
-          <button onclick="goToSignin()" class="auth-button" type="button">
-            Sign in
-          </button>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css?family=Keania One" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet" />
+  <link href="./styles.css" rel="stylesheet" />
+  <style>
+    #enviroment {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      padding: 0;
+      z-index: -1;
+    }
+  </style>
+</head>
+<div id="enviroment"></div>
+
+<body>
+  <section id="lobby">
+    <div class="navigation-header-container">
+      <div class="navigation-header-wrapper">
+        <div class="navigation-header-logo">
+          <h1 class="navigation-header-logo-text">P</h1>
+          <img loading="lazy" src="./assets/app_logo.png" alt="App Logo" class="app-logo" />
+          <h1 class="navigation-header-logo-text">NG</h1>
         </div>
         <div class="navigation-header-content">
           <p class="navigation-header-item" onclick="goToHomeNavigation()">
@@ -239,7 +186,7 @@
     </div>
     <div class="signin box">
       <div class="register-container">
-        <form class="register-form-wrapper" action="POST">
+        <form class="register-form-wrapper">
           <header class="header-container">
             <p onclick="goToLobby()" class="logo">
               <img src="./assets/back_arrow.svg" alt="" />
@@ -252,7 +199,7 @@
           <input type="password" id="signInPassword" class="form-input" placeholder="password" />
 
           <div class="button-wrapper">
-            <button type="submit" class="submit-button">Sign in</button>
+            <button type="button" class="submit-button" onclick="requestLoginButton()">Sign in</button>
           </div>
 
           <div class="prompt">
@@ -300,7 +247,7 @@
           </div>
 
           <div class="button-wrapper">
-            <button type="submit" class="submit-button">Sign up</button>
+            <button type="button" class="submit-button" onclick="requestSignUp()">Sign up</button>
           </div>
 
           <div class="prompt">
@@ -393,55 +340,69 @@
           </ul>
         </div>
       </div>
-    </section>
+  </section>
 
-    <section style="display: none" id="gameStart">
-      <div class="gameStartView">
-        <div class="gameStartPlayer box">
-          <div class="gameStartSelectable">
-            <img src="./assets/default_avatar.png" alt="default_avatar" class="gameStartPlayerAvatar">
-            <h2 class="gameStartPlayerDisplayName">Test1</h2>
-          </div>
+  <section style="display: none" id="gameStart">
+    <div class="gameStartView">
+      <div class="gameStartPlayer box">
+        <div class="gameStartSelectable">
+          <img src="./assets/default_avatar.png" alt="default_avatar" class="gameStartPlayerAvatar">
+          <h2 class="gameStartPlayerDisplayName">Test1</h2>
         </div>
-        <div class="gameStartPlayer box"> <div class="gameStartSelectable">
-            <img src="./assets/default_avatar.png" alt="default_avatar" class="gameStartPlayerAvatar">
-            <h2 class="gameStartPlayerDisplayName">Test1</h2>
-          </div></div>
-        <div class="gameStartPlayer box"> <div class="gameStartSelectable">
-            <img src="./assets/default_avatar.png" alt="default_avatar" class="gameStartPlayerAvatar">
-            <h2 class="gameStartPlayerDisplayName">Test1</h2>
-          </div></div>
-        <div class="gameStartPlayer box"> <div class="gameStartSelectable">
-            <img src="./assets/default_avatar.png" alt="default_avatar" class="gameStartPlayerAvatar">
-            <h2 class="gameStartPlayerDisplayName">Test1</h2>
-          </div></div>
-        <img class="vsImage" src="./assets/vs_logo.png"/>
-        <div class="gameStartPlayer box"> <div class="gameStartSelectable">
-            <img src="./assets/default_avatar.png" alt="default_avatar" class="gameStartPlayerAvatar">
-            <h2 class="gameStartPlayerDisplayName">Test1</h2>
-          </div></div>
-        <div class="gameStartPlayer box"> <div class="gameStartSelectable">
-            <img src="./assets/default_avatar.png" alt="default_avatar" class="gameStartPlayerAvatar">
-            <h2 class="gameStartPlayerDisplayName">Test1</h2>
-          </div></div>
-        <div class="gameStartPlayer box"> <div class="gameStartSelectable">
-            <img src="./assets/default_avatar.png" alt="default_avatar" class="gameStartPlayerAvatar">
-            <h2 class="gameStartPlayerDisplayName">Test1</h2>
-          </div></div>
-        <div class="gameStartPlayer box"> <div class="gameStartSelectable">
-            <img src="./assets/default_avatar.png" alt="default_avatar" class="gameStartPlayerAvatar">
-            <h2 class="gameStartPlayerDisplayName">Test1</h2>
-          </div></div>
+      </div>
+      <div class="gameStartPlayer box">
+        <div class="gameStartSelectable">
+          <img src="./assets/default_avatar.png" alt="default_avatar" class="gameStartPlayerAvatar">
+          <h2 class="gameStartPlayerDisplayName">Test1</h2>
         </div>
-        <div class="gameButtonContainer">
-          <button onclick="goToHome()">Go back</button>
-          <button>Randomize</button>
-          <button onclick="startOff()" id="startGameButton">Start game</button>
+      </div>
+      <div class="gameStartPlayer box">
+        <div class="gameStartSelectable">
+          <img src="./assets/default_avatar.png" alt="default_avatar" class="gameStartPlayerAvatar">
+          <h2 class="gameStartPlayerDisplayName">Test1</h2>
         </div>
-    </section>
+      </div>
+      <div class="gameStartPlayer box">
+        <div class="gameStartSelectable">
+          <img src="./assets/default_avatar.png" alt="default_avatar" class="gameStartPlayerAvatar">
+          <h2 class="gameStartPlayerDisplayName">Test1</h2>
+        </div>
+      </div>
+      <img class="vsImage" src="./assets/vs_logo.png" />
+      <div class="gameStartPlayer box">
+        <div class="gameStartSelectable">
+          <img src="./assets/default_avatar.png" alt="default_avatar" class="gameStartPlayerAvatar">
+          <h2 class="gameStartPlayerDisplayName">Test1</h2>
+        </div>
+      </div>
+      <div class="gameStartPlayer box">
+        <div class="gameStartSelectable">
+          <img src="./assets/default_avatar.png" alt="default_avatar" class="gameStartPlayerAvatar">
+          <h2 class="gameStartPlayerDisplayName">Test1</h2>
+        </div>
+      </div>
+      <div class="gameStartPlayer box">
+        <div class="gameStartSelectable">
+          <img src="./assets/default_avatar.png" alt="default_avatar" class="gameStartPlayerAvatar">
+          <h2 class="gameStartPlayerDisplayName">Test1</h2>
+        </div>
+      </div>
+      <div class="gameStartPlayer box">
+        <div class="gameStartSelectable">
+          <img src="./assets/default_avatar.png" alt="default_avatar" class="gameStartPlayerAvatar">
+          <h2 class="gameStartPlayerDisplayName">Test1</h2>
+        </div>
+      </div>
+    </div>
+    <div class="gameButtonContainer">
+      <button onclick="goToHome()">Go back</button>
+      <button>Randomize</button>
+      <button onclick="startOff()" id="startGameButton">Start game</button>
+    </div>
+  </section>
 
-    <section style="display: none" id="2v2GameStart">
-      <div class="gameStartView">
+  <section style="display: none" id="2v2GameStart">
+    <div class="gameStartView">
       <div class="gameStartPlayer box">
         <div class="gameStartSelectable">
           <img src="./assets/default_avatar.png" alt="default_avatar" class="gameStartPlayerAvatar">
@@ -460,7 +421,7 @@
           <h2 class="gameStartPlayerDisplayName">Test1</h2>
         </div>
       </div>
-      <img class="vsImage" src="./assets/vs_logo.png"/>
+      <img class="vsImage" src="./assets/vs_logo.png" />
       <div class="gameStartPlayer box">
         <div class="gameStartSelectable">
           <img src="./assets/default_avatar.png" alt="default_avatar" class="gameStartPlayerAvatar">
@@ -642,7 +603,7 @@
   <script>
     let gameWindow = document.getElementById("gameWindow")
     //async function  startOff() {
-    function  startOff() {
+    function startOff() {
       gameWindow.style.display = "block"
       //let result = await startGame()
       // startGame(ai)
@@ -654,9 +615,9 @@
       console.log("index.html result from startGame=", result)
       //gameWindow.style.display = "none"
       // startGame().then(result => {
-         //  	console.log("result =", result);  // Log the result
-          //  	gameWindow.style.display = "none";  // Hide the game window after the game finishes
-        // }	
+      //  	console.log("result =", result);  // Log the result
+      //  	gameWindow.style.display = "none";  // Hide the game window after the game finishes
+      // }	
     }
   </script>
   <script type="importmap">
@@ -669,6 +630,58 @@
     </script>
   <script type="module" src="./base.js"></script>
   <script type="module" src="./main.js"></script>
+  <script>
+    window["loggedinUsers"] = {}
+    window["loggedinUsersIds"] = []
+    const requestSignUp = async () => {
+      const username = document.getElementById("signUpUsername").value
+      const password = document.getElementById("signUpPassword").value
+      try {
+        const response = await fetch("https://localhost:8443/api/players/", {
+          method: "POST",
+          body: JSON.stringify({
+            username,
+            password,
+            displayName: document.getElementById("displayName").value,
+          })
+        })
+        const json = await response.json().then(
+          requestLogin(
+            username, password
+          )
+        );
+        // updateLoggedinUsers()
+      } catch (error) {
+        console.error(error.message);
+      }
+    }
+
+    const updateLoggedinUsers = () => {
+      console.log(window["loggedinUsers"][window["loggedinUsersIds"][0]])
+    }
+
+    const requestLoginButton = async () => {
+      await requestLogin(document.getElementById("signInUsername").value, document.getElementById("signInPassword").value)
+    }
+
+    const requestLogin = async (_username, _password) => {
+      try {
+        const response = await fetch("https://localhost:8443/api/auth/login/", {
+          method: "POST",
+          body: JSON.stringify({
+            username: _username,
+            password: _password,
+          })
+        })
+        const json = await response.json();
+        window["loggedinUsers"][json.data.id] = json.data
+        window["loggedinUsersIds"].push(json.data.id)
+        updateLoggedinUsers()
+      } catch (error) {
+        console.error(error.message);
+      }
+    }
+  </script>
 </body>
 
 </html>
