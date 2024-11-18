@@ -21,6 +21,7 @@
         width: 100vw;
         height: 100vh;
         padding: 0;
+        z-index: -1;
       }
       #gameWindow {
 				width: 96vw;
@@ -95,117 +96,140 @@
             Sign in
           </button>
         </div>
-        <div class="player-brief-info-panel">
-          <h1 class="auth-title">Add player</h1>
-          <button onclick="goToSignup()" class="auth-button" type="button">
-            Sign up
-          </button>
-          <button onclick="goToSignin()" class="auth-button" type="button">
-            Sign in
-          </button>
+        <div class="navigation-header-content">
+          <p class="navigation-header-item" onclick="goToHomeNavigation()">
+            HOME
+          </p>
+          <p class="navigation-header-item" onclick="goToAboutNavigation()">
+            ABOUT
+          </p>
+          <p class="navigation-header-item" onclick="goToSettingsNavigation()">
+            SETTINGS
+          </p>
         </div>
       </div>
-      <div class="homeRight half">
-        <div class="matches-container">
-          <div class="matches-card">
-            <h2 class="matches-title">Recent matches</h2>
-            <article class="matches-list">
-              <ul class="match-results">
-                <li class="match-result">
-                  <p onclick="goToMatchView()" class="match-link">
-                    <span class="winner-name">Vladimir</span> beat Max [11 : 0]
-                  </p>
-                </li>
-                <li class="match-result">
-                  <p onclick="goToMatchView()" class="match-link">
-                    <span class="winner-name">Max</span> beat Alex [11 : 6]
-                  </p>
-                </li>
-                <li class="match-result">
-                  <p onclick="goToMatchView()" class="match-link">
-                    <span class="winner-name">Leo</span> beat Robert [12 : 10]
-                  </p>
-                </li>
-                <li class="match-result">
-                  <p onclick="goToMatchView()" class="match-link">
-                    <span class="winner-name">Max</span> beat Robert [11 : 1]
-                  </p>
-                </li>
-                <li class="match-result">
-                  <p onclick="goToMatchView()" class="match-link">
-                    <span class="winner-name">David</span> beat Max [11 : 8]
-                  </p>
-                </li>
-                <li class="match-result match-result-large">
-                  <p onclick="goToMatchView()" class="match-link">
-                    <span class="winner-name">David</span> beat Vladimir [14 :
-                    12]
-                  </p>
-                </li>
-                <li class="match-result">
-                  <p onclick="goToMatchView()" class="match-link">
-                    <span class="winner-name">David</span> beat Max [11 : 7]
-                  </p>
-                </li>
-                <li class="match-result">
-                  <p onclick="goToMatchView()" class="match-link">
-                    <span class="winner-name">David</span> beat Max [11 : 7]
-                  </p>
-                </li>
-                <li class="match-result">
-                  <p onclick="goToMatchView()" class="match-link">
-                    <span class="winner-name">David</span> beat Max [11 : 7]
-                  </p>
-                </li>
-                <li class="match-result">
-                  <p onclick="goToMatchView()" class="match-link">
-                    <span class="winner-name">David</span> beat Max [11 : 7]
-                  </p>
-                </li>
-              </ul>
-            </article>
-            <div
-              class="matches-scrollbar"
-              role="scrollbar"
-              aria-orientation="vertical"
-            ></div>
-          </div>
+    </div>
+    <div class="homeLeft half">
+      <div class="player-brief-info-panel">
+        <h1 class="auth-title">Add player</h1>
+        <button onclick="goToSignup()" class="auth-button" type="button">
+          Sign up
+        </button>
+        <button onclick="goToSignin()" class="auth-button" type="button">
+          Sign in
+        </button>
+      </div>
+      <div class="player-brief-info-panel">
+        <h1 class="auth-title">Add player</h1>
+        <button onclick="goToSignup()" class="auth-button" type="button">
+          Sign up
+        </button>
+        <button onclick="goToSignin()" class="auth-button" type="button">
+          Sign in
+        </button>
+      </div>
+      <div class="player-brief-info-panel">
+        <h1 class="auth-title">Add player</h1>
+        <button onclick="goToSignup()" class="auth-button" type="button">
+          Sign up
+        </button>
+        <button onclick="goToSignin()" class="auth-button" type="button">
+          Sign in
+        </button>
+      </div>
+      <div class="player-brief-info-panel">
+        <h1 class="auth-title">Add player</h1>
+        <button onclick="goToSignup()" class="auth-button" type="button">
+          Sign up
+        </button>
+        <button onclick="goToSignin()" class="auth-button" type="button">
+          Sign in
+        </button>
+      </div>
+    </div>
+    <div class="homeRight half">
+      <div class="matches-container">
+        <div class="matches-card">
+          <h2 class="matches-title">Recent matches</h2>
+          <article class="matches-list">
+            <ul class="match-results">
+              <li class="match-result">
+                <p onclick="goToMatchView()" class="match-link">
+                  <span class="winner-name">Vladimir</span> beat Max [11 : 0]
+                </p>
+              </li>
+              <li class="match-result">
+                <p onclick="goToMatchView()" class="match-link">
+                  <span class="winner-name">Max</span> beat Alex [11 : 6]
+                </p>
+              </li>
+              <li class="match-result">
+                <p onclick="goToMatchView()" class="match-link">
+                  <span class="winner-name">Leo</span> beat Robert [12 : 10]
+                </p>
+              </li>
+              <li class="match-result">
+                <p onclick="goToMatchView()" class="match-link">
+                  <span class="winner-name">Max</span> beat Robert [11 : 1]
+                </p>
+              </li>
+              <li class="match-result">
+                <p onclick="goToMatchView()" class="match-link">
+                  <span class="winner-name">David</span> beat Max [11 : 8]
+                </p>
+              </li>
+              <li class="match-result match-result-large">
+                <p onclick="goToMatchView()" class="match-link">
+                  <span class="winner-name">David</span> beat Vladimir [14 :
+                  12]
+                </p>
+              </li>
+              <li class="match-result">
+                <p onclick="goToMatchView()" class="match-link">
+                  <span class="winner-name">David</span> beat Max [11 : 7]
+                </p>
+              </li>
+              <li class="match-result">
+                <p onclick="goToMatchView()" class="match-link">
+                  <span class="winner-name">David</span> beat Max [11 : 7]
+                </p>
+              </li>
+              <li class="match-result">
+                <p onclick="goToMatchView()" class="match-link">
+                  <span class="winner-name">David</span> beat Max [11 : 7]
+                </p>
+              </li>
+              <li class="match-result">
+                <p onclick="goToMatchView()" class="match-link">
+                  <span class="winner-name">David</span> beat Max [11 : 7]
+                </p>
+              </li>
+            </ul>
+          </article>
+          <div class="matches-scrollbar" role="scrollbar" aria-orientation="vertical"></div>
         </div>
+      </div>
 
-        <div class="tournament-container">
-          <article class="tournament-card">
-            <h2 class="tournament-title">Tournaments</h2>
-            <div class="tournament-content">
-              <a href="#">
-                <img
-                  loading="lazy"
-                  src="./assets/left_triangle_arrow.svg"
-                  alt=""
-                  class="tournament-icon"
-                />
-              </a>
-              <div class="tournament-details">
-                <a href="#" class="tournament-link"> Transcendence Cup 2024 </a>
-                <br />
-                Status: <span class="status-completed">completed</span>
-                <br />
-                Winner: Max
-                <br />
-                Runner-up: Alex
-                <br />
-                Created: <span class="date-text">25/02/2024</span>
-                <br />
-                Ended: <span class="date-text">27/02/2024</span>
-                <br />
-              </div>
-              <a href="#">
-                <img
-                  loading="lazy"
-                  src="./assets/right_triangle_arrow.svg"
-                  alt=""
-                  class="tournament-icon"
-                />
-              </a>
+      <div class="tournament-container">
+        <article class="tournament-card">
+          <h2 class="tournament-title">Tournaments</h2>
+          <div class="tournament-content">
+            <a href="#">
+              <img loading="lazy" src="./assets/left_triangle_arrow.svg" alt="" class="tournament-icon" />
+            </a>
+            <div class="tournament-details">
+              <a href="#" class="tournament-link"> Transcendence Cup 2024 </a>
+              <br />
+              Status: <span class="status-completed">completed</span>
+              <br />
+              Winner: Max
+              <br />
+              Runner-up: Alex
+              <br />
+              Created: <span class="date-text">25/02/2024</span>
+              <br />
+              Ended: <span class="date-text">27/02/2024</span>
+              <br />
             </div>
           </article>
         </div>
@@ -253,41 +277,33 @@
               placeholder="username"
             />
 
-            <input
-              type="password"
-              id="signInPassword"
-              class="form-input"
-              placeholder="password"
-            />
+          <input type="text" id="signInUsername" class="form-input" placeholder="username" />
 
-            <div class="button-wrapper">
-              <button type="submit" class="submit-button">Sign in</button>
-            </div>
+          <input type="password" id="signInPassword" class="form-input" placeholder="password" />
 
-            <div class="prompt">
-              <a href="#" class="reg-link">Forgot password?</a>
-            </div>
+          <div class="button-wrapper">
+            <button type="submit" class="submit-button">Sign in</button>
+          </div>
 
-            <div class="prompt-not-a-member">
-              <span class="prompt-text">Not a member yet?</span>
-              <a href="#" class="reg-link">Sign up</a>
-            </div>
+          <div class="prompt">
+            <a href="#" class="reg-link">Forgot password?</a>
+          </div>
 
-            <hr class="divider" />
+          <div class="prompt-not-a-member">
+            <span class="prompt-text">Not a member yet?</span>
+            <a href="#" class="reg-link">Sign up</a>
+          </div>
 
-            <div class="prompt-oauth">
-              <span class="prompt-text">Sign in with 42 account</span>
-            </div>
+          <hr class="divider" />
 
-            <a href="#" class="oauth-logo">
-              <img
-                src="./assets/42_api_logo.png"
-                alt="42 Logo"
-                class="oauth-logo"
-              />
-            </a>
-          </form>
-        </div>
+          <div class="prompt-oauth">
+            <span class="prompt-text">Sign in with 42 account</span>
+          </div>
+
+          <a href="#" class="oauth-logo">
+            <img src="./assets/42_api_logo.png" alt="42 Logo" class="oauth-logo" />
+          </a>
+        </form>
       </div>
       <div class="signup box">
         <div class="register-container">
@@ -305,13 +321,7 @@
               class="form-input first-input"
               placeholder="display name"
             />
-
-            <input
-              type="text"
-              id="signUpUsername"
-              class="form-input"
-              placeholder="username"
-            />
+          <input type="text" id="displayName" class="form-input first-input" placeholder="display name" />
 
             <input
               type="password"
@@ -332,21 +342,18 @@
               <span class="remember-text">Remember me</span>
             </div>
 
-            <div class="button-wrapper">
-              <button type="submit" class="submit-button">Sign up</button>
-            </div>
+          <input type="password" id="signUpPassword" class="form-input" placeholder="password" />
 
-            <div class="prompt">
-              <span class="prompt-text">Already have an account?</span>
-              <a href="#" class="reg-link">Sign in</a>
-            </div>
+          <input type="password" id="repeatPassword" class="form-input" placeholder="repeat password" />
 
-            <hr class="divider" />
+          <div class="remember-me-container">
+            <input type="checkbox" id="rememberMe" class="checkbox-inner" />
+            <span class="remember-text">Remember me</span>
+          </div>
 
-            <div class="prompt-oauth">
-              <span class="prompt-text">Sign up with 42 account</span>
-            </div>
-
+          <div class="button-wrapper">
+            <button type="submit" class="submit-button">Sign up</button>
+          </div>
             <a href="#" class="oauth-logo">
               <img
                 src="./assets/42_api_logo.png"
@@ -367,89 +374,137 @@
               <h1 class="match-stats-title-top">Match statistics</h1>
             </header>
           </div>
-          <div class="match-stats-result">
-            <div class="match-stats-text-format">
+
+          <hr class="divider" />
+
+          <div class="prompt-oauth">
+            <span class="prompt-text">Sign up with 42 account</span>
+          </div>
+
+          <a href="#" class="oauth-logo">
+            <img src="./assets/42_api_logo.png" alt="42 Logo" class="oauth-logo" />
+          </a>
+        </form>
+      </div>
+    </div>
+    <div class="matchView box half">
+      <div class="match-stats">
+        <div class="match-stats-header">
+          <header class="match-stats-header-wrapper">
+            <p onclick="goToHomeRight()" class="logo">
+              <img src="./assets/back_arrow.svg" alt="" />
+            </p>
+            <h1 class="match-stats-title-top">Match statistics</h1>
+          </header>
+        </div>
+        <div class="match-stats-result">
+          <div class="match-stats-text-format">
+            <span>Vladimir</span>
+            <span>11</span>
+          </div>
+          <div class="match-stats-text-format">
+            <span>Max</span>
+            <span>0</span>
+          </div>
+        </div>
+        <div class="match-stats-result match-stats-time-info">
+          <div class="match-stats-text-format">
+            <span>Match time:</span>
+            <span>05m 26sec</span>
+          </div>
+          <div class="match-stats-text-format">
+            <span>Date:</span>
+            <span>10/05/2024</span>
+          </div>
+        </div>
+        <div class="match-stats-header-no-arrow">
+          <h1 class="match-stats-title">H2H</h1>
+        </div>
+        <div class="match-stats-result">
+          <div class="match-stats-text-format">
+            <span>Vladimir</span>
+            <span class="match-stats-match-score">7:4</span>
+            <span>Max</span>
+          </div>
+        </div>
+        <div class="match-stats-header-no-arrow">
+          <h1 class="match-stats-title">H2H matches</h1>
+        </div>
+        <div class="match-stats-scroll-container">
+          <ul class="match-stats-list">
+            <li class="match-stats-text-format">
               <span>Vladimir</span>
-              <span>11</span>
-            </div>
-            <div class="match-stats-text-format">
+              <span class="match-stats-match-score">11:2</span>
               <span>Max</span>
-              <span>0</span>
-            </div>
-          </div>
-          <div class="match-stats-result match-stats-time-info">
-            <div class="match-stats-text-format">
-              <span>Match time:</span>
-              <span>05m 26sec</span>
-            </div>
-            <div class="match-stats-text-format">
-              <span>Date:</span>
-              <span>10/05/2024</span>
-            </div>
-          </div>
-          <div class="match-stats-header-no-arrow">
-            <h1 class="match-stats-title">H2H</h1>
-          </div>
-          <div class="match-stats-result">
-            <div class="match-stats-text-format">
+            </li>
+            <li class="match-stats-text-format">
+              <span>Max</span>
+              <span class="match-stats-match-score">9:11</span>
               <span>Vladimir</span>
-              <span class="match-stats-match-score">7:4</span>
+            </li>
+            <li class="match-stats-text-format">
+              <span>Vladimir</span>
+              <span class="match-stats-match-score">4:11</span>
               <span>Max</span>
-            </div>
-          </div>
-          <div class="match-stats-header-no-arrow">
-            <h1 class="match-stats-title">H2H matches</h1>
-          </div>
-          <div class="match-stats-scroll-container">
-            <ul class="match-stats-list">
-              <li class="match-stats-text-format">
-                <span>Vladimir</span>
-                <span class="match-stats-match-score">11:2</span>
-                <span>Max</span>
-              </li>
-              <li class="match-stats-text-format">
-                <span>Max</span>
-                <span class="match-stats-match-score">9:11</span>
-                <span>Vladimir</span>
-              </li>
-              <li class="match-stats-text-format">
-                <span>Vladimir</span>
-                <span class="match-stats-match-score">4:11</span>
-                <span>Max</span>
-              </li>
-              <li class="match-stats-text-format">
-                <span>Vladimir</span>
-                <span class="match-stats-match-score">13:11</span>
-                <span>Max</span>
-              </li>
-              <li class="match-stats-text-format">
-                <span>Max</span>
-                <span class="match-stats-match-score">10:12</span>
-                <span>Vladimir</span>
-              </li>
-            </ul>
-          </div>
+            </li>
+            <li class="match-stats-text-format">
+              <span>Vladimir</span>
+              <span class="match-stats-match-score">13:11</span>
+              <span>Max</span>
+            </li>
+            <li class="match-stats-text-format">
+              <span>Max</span>
+              <span class="match-stats-match-score">10:12</span>
+              <span>Vladimir</span>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
 
     <section style="display: none" id="gameStart">
       <div class="gameStartView">
-        <div class="gameStartPlayer box"></div>
-        <div class="gameStartPlayer box"></div>
-        <div class="gameStartPlayer box"></div>
-        <div class="gameStartPlayer box"></div>
-        <img class="vsImage" />
-        <div class="gameStartPlayer box"></div>
-        <div class="gameStartPlayer box"></div>
-        <div class="gameStartPlayer box"></div>
-        <div class="gameStartPlayer box"></div>
-      </div>
-      <div class="gameButtonContainer">
-        <button onclick="goToHome()">Go back</button>
-        <button>Randomize</button>
-        <button onclick="">Start game</button>
-      </div>
+        <div class="gameStartPlayer box">
+          <div class="gameStartSelectable">
+            <img src="./assets/default_avatar.png" alt="default_avatar" class="gameStartPlayerAvatar">
+            <h2 class="gameStartPlayerDisplayName">Test1</h2>
+          </div>
+        </div>
+        <div class="gameStartPlayer box"> <div class="gameStartSelectable">
+            <img src="./assets/default_avatar.png" alt="default_avatar" class="gameStartPlayerAvatar">
+            <h2 class="gameStartPlayerDisplayName">Test1</h2>
+          </div></div>
+        <div class="gameStartPlayer box"> <div class="gameStartSelectable">
+            <img src="./assets/default_avatar.png" alt="default_avatar" class="gameStartPlayerAvatar">
+            <h2 class="gameStartPlayerDisplayName">Test1</h2>
+          </div></div>
+        <div class="gameStartPlayer box"> <div class="gameStartSelectable">
+            <img src="./assets/default_avatar.png" alt="default_avatar" class="gameStartPlayerAvatar">
+            <h2 class="gameStartPlayerDisplayName">Test1</h2>
+          </div></div>
+        <img class="vsImage" src="./assets/vs_logo.png"/>
+        <div class="gameStartPlayer box"> <div class="gameStartSelectable">
+            <img src="./assets/default_avatar.png" alt="default_avatar" class="gameStartPlayerAvatar">
+            <h2 class="gameStartPlayerDisplayName">Test1</h2>
+          </div></div>
+        <div class="gameStartPlayer box"> <div class="gameStartSelectable">
+            <img src="./assets/default_avatar.png" alt="default_avatar" class="gameStartPlayerAvatar">
+            <h2 class="gameStartPlayerDisplayName">Test1</h2>
+          </div></div>
+        <div class="gameStartPlayer box"> <div class="gameStartSelectable">
+            <img src="./assets/default_avatar.png" alt="default_avatar" class="gameStartPlayerAvatar">
+            <h2 class="gameStartPlayerDisplayName">Test1</h2>
+          </div></div>
+        <div class="gameStartPlayer box"> <div class="gameStartSelectable">
+            <img src="./assets/default_avatar.png" alt="default_avatar" class="gameStartPlayerAvatar">
+            <h2 class="gameStartPlayerDisplayName">Test1</h2>
+          </div></div>
+        </div>
+        <div class="gameButtonContainer">
+          <button onclick="goToHome()">Go back</button>
+          <button>Randomize</button>
+          <button onclick="startOff()" id="startGameButton">Start game</button>
+        </div>
     </section>
 
     <!-- <section style="display: none" id="tournament">
@@ -458,22 +513,31 @@
         <div class="box tournamentPlayer">
           <h2 class="tournamentPlayerName"></h2>
         </div>
-        <div class="box tournamentPlayer">
-          <h2 class="tournamentPlayerName"></h2>
-        </div>
-        <div class="box tournamentPlayer">
-          <h2 class="tournamentPlayerName"></h2>
-        </div>
-        <div class="box tournamentPlayer">
-          <h2 class="tournamentPlayerName"></h2>
+      </div>
+      <div class="gameStartPlayer box">
+        <div class="gameStartSelectable">
+          <img src="./assets/default_avatar.png" alt="default_avatar" class="gameStartPlayerAvatar">
+          <h2 class="gameStartPlayerDisplayName">Test1</h2>
         </div>
       </div>
-      <div class="tournamentRight half">
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <button onclick="goToHome()">Back to Menu</button>
-        <button onclick="">Start the games</button>
+      <div class="gameStartPlayer box">
+        <div class="gameStartSelectable">
+          <img src="./assets/default_avatar.png" alt="default_avatar" class="gameStartPlayerAvatar">
+          <h2 class="gameStartPlayerDisplayName">Test1</h2>
+        </div>
+      </div>
+      <img class="vsImage" src="./assets/vs_logo.png"/>
+      <div class="gameStartPlayer box">
+        <div class="gameStartSelectable">
+          <img src="./assets/default_avatar.png" alt="default_avatar" class="gameStartPlayerAvatar">
+          <h2 class="gameStartPlayerDisplayName">Test1</h2>
+        </div>
+      </div>
+      <div class="gameStartPlayer box">
+        <div class="gameStartSelectable">
+          <img src="./assets/default_avatar.png" alt="default_avatar" class="gameStartPlayerAvatar">
+          <h2 class="gameStartPlayerDisplayName">Test1</h2>
+        </div>
       </div>
     </section> -->
 
@@ -895,6 +959,194 @@
       });
     </script>
     <script type="importmap">
+=======
+      <div class="gameStartPlayer box">
+        <div class="gameStartSelectable">
+          <img src="./assets/default_avatar.png" alt="default_avatar" class="gameStartPlayerAvatar">
+          <h2 class="gameStartPlayerDisplayName">Test1</h2>
+        </div>
+      </div>
+      <div class="gameStartPlayer box">
+        <div class="gameStartSelectable">
+          <img src="./assets/default_avatar.png" alt="default_avatar" class="gameStartPlayerAvatar">
+          <h2 class="gameStartPlayerDisplayName">Test1</h2>
+        </div>
+      </div>
+    </div>
+    <div class="gameButtonContainer">
+      <button onclick="goToHome()">Go back</button>
+      <button>Randomize</button>
+      <button onclick="">Start game</button>
+    </div>
+  </section>
+
+  <section style="display: none" id="tournament">
+    <div class="tournamentLeft half">
+      <div class="tournamentName">42 national tornament</div>
+      <div class="box tournamentPlayer">
+        <h2 class="tournamentPlayerName"></h2>
+      </div>
+      <div class="box tournamentPlayer">
+        <h2 class="tournamentPlayerName"></h2>
+      </div>
+      <div class="box tournamentPlayer">
+        <h2 class="tournamentPlayerName"></h2>
+      </div>
+      <div class="box tournamentPlayer">
+        <h2 class="tournamentPlayerName"></h2>
+      </div>
+    </div>
+    <div class="tournamentRight half">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <button onclick="goToHome()">Back to Menu</button>
+      <button onclick="">Start the games</button>
+    </div>
+  </section>
+
+  <section style="display: none" id="profile">
+    <div class="profile box">
+      profile
+      <button onclick="goToHome()">go back</button>
+    </div>
+  </section>
+  <div id="gameWindow"></div>
+  <script>
+    /* Collection of all the buttons that transition the views */
+    /* home screen transitions */
+    const homeLeft = document.getElementsByClassName("homeLeft")[0];
+    const homeRight = document.getElementsByClassName("homeRight")[0];
+
+    const signup = document.getElementsByClassName("signup")[0];
+    const signin = document.getElementsByClassName("signin")[0];
+
+    const matchView = document.getElementsByClassName("matchView")[0];
+
+    function goToSignup() {
+      homeLeft.style.display = "none";
+      signin.style.display = "none";
+      signup.style.display = "block";
+    }
+
+    function goToSignin() {
+      homeLeft.style.display = "none";
+      signin.style.display = "block";
+      signup.style.display = "none";
+    }
+
+    function goToLobby() {
+      homeLeft.style.display = "grid";
+      signin.style.display = "none";
+      signup.style.display = "none";
+    }
+
+    function goToMatchView() {
+      matchView.style.display = "block";
+      homeRight.style.display = "none";
+    }
+
+    function goToHomeRight() {
+      matchView.style.display = "none";
+      homeRight.style.display = "grid";
+    }
+
+    /* section transitions */
+    const lobby = document.getElementById("lobby");
+    const gameStart = document.getElementById("gameStart");
+    const tournament = document.getElementById("tournament");
+    const profile = document.getElementById("profile");
+    const otherGameStart = document.getElementById("2v2GameStart");
+
+    function goToHome() {
+      lobby.style.display = "block";
+      gameStart.style.display = "none";
+      tournament.style.display = "none";
+      profile.style.display = "none";
+      otherGameStart.style.display = "none";
+    }
+
+    function goToGameStart() {
+      lobby.style.display = "none";
+      gameStart.style.display = "block";
+      tournament.style.display = "none";
+      profile.style.display = "none";
+      otherGameStart.style.display = "none";
+    }
+
+    function goToTournament() {
+      lobby.style.display = "none";
+      gameStart.style.display = "none";
+      tournament.style.display = "block";
+      profile.style.display = "none";
+    }
+
+    function goToProfile() {
+      lobby.style.display = "none";
+      gameStart.style.display = "none";
+      tournament.style.display = "none";
+      profile.style.display = "block";
+      otherGameStart.style.display = "none";
+    }
+
+    function goTo2v2GameStart() {
+      lobby.style.display = "none";
+      gameStart.style.display = "none";
+      tournament.style.display = "none";
+      profile.style.display = "none";
+      otherGameStart.style.display = "block";
+    }
+
+    function goToHomeNavigation() {
+      homeLeft.style.display = "grid";
+      homeRight.style.display = "grid";
+    }
+
+    function goToAboutNavigation() {
+      homeLeft.style.display = "none";
+      homeRight.style.display = "none";
+    }
+
+    function goToSettingsNavigation() {
+      homeLeft.style.display = "none";
+      homeRight.style.display = "none";
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const navItems = document.querySelectorAll(".navigation-header-item");
+      navItems[0].classList.add("active");
+    });
+
+    document.querySelectorAll(".navigation-header-item").forEach((item) => {
+      item.addEventListener("click", () => {
+        document.querySelectorAll(".navigation-header-item").forEach((i) => {
+          i.classList.remove("active");
+        });
+        item.classList.add("active");
+      });
+    });
+  </script>
+  <script>
+    let gameWindow = document.getElementById("gameWindow")
+    //async function  startOff() {
+    function  startOff() {
+      gameWindow.style.display = "block"
+      //let result = await startGame()
+      // startGame(ai)
+      // ai = 2 two AIs: AI vs god level AI
+      // ai = 1 one AI vs human
+      // ai = 0 two humans
+      // (to be implemented) ai = -2 four humans
+      let result = startGame(1)
+      console.log("index.html result from startGame=", result)
+      //gameWindow.style.display = "none"
+      // startGame().then(result => {
+         //  	console.log("result =", result);  // Log the result
+          //  	gameWindow.style.display = "none";  // Hide the game window after the game finishes
+        // }	
+    }
+  </script>
+  <script type="importmap">
       {
         "imports": {
           "three": "https://cdn.jsdelivr.net/npm/three@v0.149.0/build/three.module.js",
@@ -902,64 +1154,8 @@
         }
       }
     </script>
-    <script>
-      /* Players selector for tournament pre-setup */
-      document.addEventListener("DOMContentLoaded", () => {
-        const cards = document.querySelectorAll(".game-player-card-inner");
+  <script type="module" src="./base.js"></script>
+  <script type="module" src="./main.js"></script>
+</body>
 
-        cards.forEach((card) => {
-          card.addEventListener("click", () => {
-            if (card.classList.contains("selected")) {
-              card.classList.remove("selected");
-            } else {
-              card.classList.add("selected");
-            }
-
-            const anySelected = Array.from(cards).some((c) =>
-              c.classList.contains("selected")
-            );
-
-            cards.forEach((c) => {
-              if (anySelected) {
-                if (c.classList.contains("selected")) {
-                  c.classList.remove("shaded");
-                } else {
-                  c.classList.add("shaded");
-                }
-              } else {
-                c.classList.remove("shaded");
-              }
-            });
-          });
-        });
-      });
-    </script>
-    <script type="module" src="./base.js"></script>
-    <script type="module" src="./main.js"></script>
-    <script>
-			let gameWindow = document.getElementById("gameWindow");
-			function startOff() {
-				//const newElement = gameWindow.cloneNode(true); // Clone the element
-				//gameWindow.parentNode.replaceChild(newElement, gameWindow); // Replace it
-				//gameWindow.innerHTML = "";
-				gameWindow.style.display = "block";
-        runGame();
-				// ai = 2 two AIs: AI vs god level AI
-				// ai = 1 one AI vs human
-				// ai = 0 two humans
-				// ai = -2 four humans
-				let result = startGame(0);
-				console.log("index.html result from startGame=", result);
-				document.getElementById("gameStartButton").blur();
-				//document.getElementById("gameStartButton").disabled = true;
-				//gameWindow.style.display = "none"
-			}
-
-			// function resetGameState() {
-			// 	// Add code here to reset game variables, clear game window, etc.
-			// 	 // Example: clearing game content
-			// 	 gameWindow.innerHTML = "";
-			// }
-		</script>
-  </body>
 </html>
