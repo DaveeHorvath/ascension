@@ -88,18 +88,17 @@
             <h1 class="navigation-header-logo-text">NG</h1>
           </div>
           <div class="navigation-header-content">
-            <p class="navigation-header-item" onclick="goToHomeNavigation()">
+            <a class="navigation-header-item" onclick="goToHomeNavigation()">
               HOME
-            </p>
-            <p class="navigation-header-item" onclick="goToAboutNavigation()">
+            </a>
+            <a href="https://github.com/DaveeHorvath/ascension" class="navigation-header-item">
               ABOUT
-            </p>
-            <p
+            </a>
+            <a href="/admin"
               class="navigation-header-item"
-              onclick="goToSettingsNavigation()"
             >
               SETTINGS
-            </p>
+            </a>
           </div>
         </div>
       </div>
@@ -740,8 +739,6 @@
         tournament: goToTournament,
         profile: goToProfile,
         homenavigation: goToHomeNavigation,
-        settingsnavigation: goToSettingsNavigation,
-        aboutnavigation: goToAboutNavigation,
       };
 
       window.addEventListener("popstate", (e) => {
