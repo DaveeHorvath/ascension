@@ -102,6 +102,13 @@ body {
   margin-bottom: 10%;
 }
 
+.friend-avatar {
+  width: 12vw;
+  height: 12vw;
+  border-radius: 10vw;
+  border: 3px solid #a7a7a7;
+  margin-bottom: 10%;
+}
 
 section {
   height: 100%;

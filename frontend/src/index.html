@@ -88,18 +88,17 @@
             <h1 class="navigation-header-logo-text">NG</h1>
           </div>
           <div class="navigation-header-content">
-            <p class="navigation-header-item" onclick="goToHomeNavigation()">
+            <a class="navigation-header-item" onclick="goToHomeNavigation()">
               HOME
-            </p>
-            <p class="navigation-header-item" onclick="goToAboutNavigation()">
+            </a>
+            <a class="navigation-header-item" href="https://github.com/DaveeHorvath/ascension">
               ABOUT
-            </p>
-            <p
+            </a>
+            <a href="/admin"
               class="navigation-header-item"
-              onclick="goToSettingsNavigation()"
             >
               SETTINGS
-            </p>
+          </a>
           </div>
         </div>
       </div>
@@ -185,7 +184,7 @@
             CREATE TOURNAMENT
           </button>
           <button
-            onclick=""
+            onclick="goTo2v2GameStart()"
             class="create-action"
             tabindex="0"
             aria-label="Create Single Game"
@@ -201,7 +200,7 @@
         <div class="register-container">
           <form class="register-form-wrapper">
             <header class="header-container">
-              <p onclick="goToLobby()" class="animation">
+              <p onclick="history.back()" class="animation">
                 <img src="./assets/back_arrow.svg" alt="" />
               </p>
               <h1 class="title">Sign in</h1>
@@ -233,7 +232,7 @@
 
             <div class="prompt-not-a-member">
               <span class="prompt-text">Not a member yet?</span>
-              <a href="#" class="reg-link" onclick="goToSignup()">Sign up</a>
+              <a href="#" class="reg-link" onclick="goToSignup(); updateHistory(goToSignup);">Sign up</a>
             </div>
 
             <hr class="divider" />
@@ -247,6 +246,7 @@
                 src="./assets/42_api_logo.png"
                 alt="42 Logo"
                 class="oauth-logo"
+                onclick="open42Auth()"
               />
             </a>
           </form>
@@ -259,7 +259,7 @@
         <div class="register-container">
           <form class="register-form-wrapper">
             <header class="header-container">
-              <p onclick="goToLobby()" class="animation">
+              <p onclick="history.back()" class="animation">
                 <img src="./assets/back_arrow.svg" alt="" />
               </p>
               <h1 class="title">Sign up</h1>
@@ -298,7 +298,7 @@
 
             <div class="prompt">
               <span class="prompt-text">Already have an account?</span>
-              <a href="#" class="reg-link" onclick="goToSignin()">Sign in</a>
+              <a href="#" class="reg-link" onclick="goToSignin(); updateHistory(goToSignin);">Sign in</a>
             </div>
 
             <hr class="divider" />
@@ -324,7 +324,7 @@
         <div class="match-stats">
           <div class="match-stats-header">
             <header class="match-stats-header-wrapper">
-              <p onclick="goToHomeRight()" class="animation">
+              <p onclick="history.back()" class="animation">
                 <img src="./assets/back_arrow.svg" alt="" />
               </p>
               <h1 class="match-stats-title-top">Match statistics</h1>
@@ -446,98 +446,62 @@
 
     <!-- Container for 2v2 game -->
 
-    <section style="display: none" id="2v2GameStart">
-      <div class="gameStartView">
-        <div class="gameStartPlayer box">
-          <div class="gameStartSelectable">
+    <section style="display: none" id="gameStart2v2">
+      <div class="single-game-lobby">
+        <div class="single-game-top">
+          <div class="single-game-grid-left" id="double-game-grid-left"></div>
+          <div class="single-game-vs-logo">
             <img
-              src="./assets/default_avatar.png"
-              alt="default_avatar"
-              class="gameStartPlayerAvatar"
+              class="single-game-vs-logo-props"
+              src="./assets/vs_logo.png"
+              alt="Versus logo"
             />
-            <h2 class="gameStartPlayerDisplayName">Test1</h2>
           </div>
+          <div class="single-game-grid-right" id="double-game-grid-right"></div>
         </div>
-        <div class="gameStartPlayer box">
-          <div class="gameStartSelectable">
-            <img
-              src="./assets/default_avatar.png"
-              alt="default_avatar"
-              class="gameStartPlayerAvatar"
-            />
-            <h2 class="gameStartPlayerDisplayName">Test1</h2>
-          </div>
+        <div class="single-game-bottom">
+          <button
+            class="single-game-buttons back"
+            tabindex="0"
+            onclick="goToHome()"
+          >
+            Back to menu
+          </button>
+          <button
+            class="single-game-buttons clear-selection"
+            tabindex="0"
+            onclick="resetAll()"
+          >
+            Clear selection
+          </button>
+          <button
+            class="single-game-buttons randomize"
+            tabindex="0"
+            onclick="randomizeChoice2v2()"
+          >
+            Randomize
+          </button>
+          <button
+            class="single-game-buttons start"
+            tabindex="0"
+            onclick="startOff()"
+          >
+            Start match
+          </button>
         </div>
-        <div class="gameStartPlayer box">
-          <div class="gameStartSelectable">
-            <img
-              src="./assets/default_avatar.png"
-              alt="default_avatar"
-              class="gameStartPlayerAvatar"
-            />
-            <h2 class="gameStartPlayerDisplayName">Test1</h2>
-          </div>
-        </div>
-        <img class="vsImage" src="./assets/vs_logo.png" />
-        <div class="gameStartPlayer box">
-          <div class="gameStartSelectable">
-            <img
-              src="./assets/default_avatar.png"
-              alt="default_avatar"
-              class="gameStartPlayerAvatar"
-            />
-            <h2 class="gameStartPlayerDisplayName">Test1</h2>
-          </div>
-        </div>
-        <div class="gameStartPlayer box">
-          <div class="gameStartSelectable">
-            <img
-              src="./assets/default_avatar.png"
-              alt="default_avatar"
-              class="gameStartPlayerAvatar"
-            />
-            <h2 class="gameStartPlayerDisplayName">Test1</h2>
-          </div>
-        </div>
-        <div class="gameStartPlayer box">
-          <div class="gameStartSelectable">
-            <img
-              src="./assets/default_avatar.png"
-              alt="default_avatar"
-              class="gameStartPlayerAvatar"
-            />
-            <h2 class="gameStartPlayerDisplayName">Test1</h2>
-          </div>
-        </div>
-        <div class="gameStartPlayer box">
-          <div class="gameStartSelectable">
-            <img
-              src="./assets/default_avatar.png"
-              alt="default_avatar"
-              class="gameStartPlayerAvatar"
-            />
-            <h2 class="gameStartPlayerDisplayName">Test1</h2>
-          </div>
-        </div>
-      </div>
-      <div class="gameButtonContainer">
-        <button onclick="goToHome()">Go back</button>
-        <button>Randomize</button>
-        <button onclick="">Start game</button>
       </div>
     </section>
 
     <!-- Profile window (WIP) -->
 
-    <section id="profile" style="display: none">
+    <section id="profile" style="display: none;">
       <div class="profile-box box">
         <div class="profileLeft">
           <div id="person">
-            <img
-              id="person-avatar"
-              alt="avatar"
-              src="https://neweralive.na/wp-content/uploads/2024/06/lloyd-sikeba.jpg"
-            />
+            <img id="person-avatar" alt="avatar" src="https://neweralive.na/wp-content/uploads/2024/06/lloyd-sikeba.jpg">
+            <form id="newAvatarForm">
+              <input type="file" accept="jpg png" id="newAvatar">
+            </form>
             <h1 id="person-name">Blake</h1>
             <p id="person-stats">stats go here with history</p>
           </div>
@@ -647,14 +611,14 @@
         <button
           class="tournament-setup-buttons button back"
           tabindex="0"
-          onclick="goToLobby()"
+          onclick="history.back()"
         >
           Back
         </button>
         <button
           class="tournament-setup-buttons button continue"
           tabindex="0"
-          onclick="goToTournament()"
+          onclick="goToTournament(); updateHistory(goToTournament);"
         >
           Continue
         </button>
@@ -704,7 +668,7 @@
           class="tournament-buttons button back-to-menu"
           tabindex="0"
           id="backToMenu"
-          onclick="goToLobby()"
+          onclick="history.back()"
         >
           Back to menu
         </button>
@@ -728,6 +692,7 @@
     </div>
 
     <script>
+      history.replaceState({view: "lobby"}, "")
       /* Collection of all the buttons that transition the views */
       /* adding history, that is stored in the urlparameters */
       const views = {
@@ -740,20 +705,19 @@
         tournament: goToTournament,
         profile: goToProfile,
         homenavigation: goToHomeNavigation,
-        settingsnavigation: goToSettingsNavigation,
-        aboutnavigation: goToAboutNavigation,
       };
 
       window.addEventListener("popstate", (e) => {
-        if (history.state == null) history.replaceState({ view: "home" });
-        views[history.state["view"]]();
+        e.preventDefault()
+        if (e.state)
+          views[e.state["view"]]();
         window.gameStoped = true;
       });
 
       const updateHistory = (f) => {
         Object.entries(views).forEach((key) => {
           if (key[1] == f) {
-            history.pushState({ view: key[0] }, "");
+            history.pushState({ view: key[0] },null, "");
             console.log(key[0]);
           }
         });
@@ -776,7 +740,7 @@
       const tournament = document.getElementById("tournament");
       const profile = document.getElementById("profile");
       const tournamentSetup = document.getElementById("tournamentSetup");
-      const otherGameStart = document.getElementById("2v2GameStart");
+      const otherGameStart = document.getElementById("gameStart2v2");
 
       const header = document.getElementById("header");
 
@@ -801,7 +765,8 @@
         homeLeft.style.display = "none";
         signin.style.display = "none";
         signup.style.display = "block";
-        updateHistory(goToSignup);
+        matchView.style.display = "none";
+        homeRight.style.display = "grid";
       }
 
       function goToSignin() {
@@ -809,7 +774,8 @@
         homeLeft.style.display = "none";
         signin.style.display = "block";
         signup.style.display = "none";
-        updateHistory(goToSignin);
+        matchView.style.display = "none";
+        homeRight.style.display = "grid";
       }
 
       function goToLobby() {
@@ -817,21 +783,28 @@
         homeLeft.style.display = "grid";
         signin.style.display = "none";
         signup.style.display = "none";
-        updateHistory(goToLobby);
+        matchView.style.display = "none";
+        homeRight.style.display = "grid";
+        gameStart.style.display = "none"
+        otherGameStart.style.display = "none"
       }
 
       function goToMatchView() {
         goToHomeNoHistory();
+        homeLeft.style.display = "grid";
+        signin.style.display = "none";
+        signup.style.display = "none";
         matchView.style.display = "block";
         homeRight.style.display = "none";
-        updateHistory(goToMatchView);
       }
 
       function goToHomeRight() {
         goToHomeNoHistory();
+        homeLeft.style.display = "grid";
+        signin.style.display = "none";
+        signup.style.display = "none";
         matchView.style.display = "none";
         homeRight.style.display = "grid";
-        updateHistory(goToHomeRight);
       }
 
       function goToHomeNoHistory() {
@@ -846,7 +819,7 @@
 
       function goToHome() {
         goToHomeNoHistory();
-        // resetAll();
+        //resetAll();
         updateHistory(goToHome);
       }
 
@@ -899,7 +872,7 @@
         //   card.classList.remove("selected");
         //   card.classList.remove("shaded");
         // });
-        updateHistory(goToTournament);
+        
       }
 
       function goToProfile() {
@@ -907,7 +880,7 @@
         gameStart.style.display = "none";
         tournament.style.display = "none";
         profile.style.display = "block";
-        updateHistory(goToProfile);
+
       }
 
       function goTo2v2GameStart() {
@@ -916,6 +889,7 @@
         tournament.style.display = "none";
         profile.style.display = "none";
         otherGameStart.style.display = "block";
+        render2v2GameStart()
       }
 
       function goToHomeNavigation() {
@@ -924,23 +898,9 @@
         updateHistory(goToHomeNavigation);
       }
 
-      function goToAboutNavigation() {
-        homeLeft.style.display = "none";
-        homeRight.style.display = "none";
-        signin.style.display = "none";
-        signup.style.display = "none";
-        matchView.style.display = "none";
-        updateHistory(goToAboutNavigation);
-      }
+      function goToAboutNavigation() {}
 
-      function goToSettingsNavigation() {
-        homeLeft.style.display = "none";
-        homeRight.style.display = "none";
-        signin.style.display = "none";
-        signup.style.display = "none";
-        matchView.style.display = "none";
-        updateHistory(goToSettingsNavigation);
-      }
+      function goToSettingsNavigation() {}
 
       function openTournamentSetupBox() {
         tournamentSetup.style.display = "block";
@@ -960,15 +920,6 @@
       window.addEventListener("DOMContentLoaded", () => {
         const navItems = document.querySelectorAll(".navigation-header-item");
         navItems[0].classList.add("active");
-      });
-
-      document.querySelectorAll(".navigation-header-item").forEach((item) => {
-        item.addEventListener("click", () => {
-          document.querySelectorAll(".navigation-header-item").forEach((i) => {
-            i.classList.remove("active");
-          });
-          item.classList.add("active");
-        });
       });
     </script>
     <script>
@@ -1037,6 +988,8 @@
       document.addEventListener("DOMContentLoaded", function () {
         const leftGrid = document.querySelector(".single-game-grid-left");
         const rightGrid = document.querySelector(".single-game-grid-right");
+        const leftGrid2v2 = document.querySelector("#double-game-grid-left");
+        const rightGrid2v2 = document.querySelector("#double-game-grid-right");
         const startButton = document.querySelector(
           ".single-game-buttons.start"
         );
@@ -1124,7 +1077,22 @@
                   rightPlayer.classList.add("player-disabled");
                 }
               });
+              if (window.singleGameState.userIds)
+              {
 
+                if (index > window.state["loggedInUsers"].length - 1)
+                  window.singleGameState["userIds"][0] = 1
+                else
+                  window.singleGameState["userIds"][0] = window.state["loggedInUsers"][index].id
+              }
+              else
+              {
+                if (index > window.state["loggedInUsers"].length - 1)
+                  window.singleGameState["userIds"] = [1, -1]
+                else
+                  window.singleGameState["userIds"] = [window.state["loggedInUsers"][index].id, -1]
+              }
+            
               updateStartButton();
             });
           });
@@ -1132,7 +1100,7 @@
 
         // Add event listeners for right players
         function attachRightPlayerListeners(rightPlayers) {
-          rightPlayers.forEach((player) => {
+          rightPlayers.forEach((player, index) => {
             player.addEventListener("click", () => {
               if (
                 leftSelectedIndex !== null &&
@@ -1147,6 +1115,23 @@
 
                 player.classList.remove("player-disabled");
                 player.classList.add("player-selected");
+
+                if (window.singleGameState.userIds)
+              {
+
+                if (index > window.state["loggedInUsers"].length - 1)
+                  window.singleGameState["userIds"][1] = 1
+                else
+                  window.singleGameState["userIds"][1] = window.state["loggedInUsers"][index].id
+              }
+              else
+              {
+                if (index > window.state["loggedInUsers"].length - 1)
+                  window.singleGameState["userIds"] = [-1,1]
+                else
+                  window.singleGameState["userIds"] = [-1, window.state["loggedInUsers"][index].id]
+              }
+
                 updateStartButton();
               }
             });
@@ -1177,18 +1162,293 @@
           }
         });
 
+        function randomizeChoice2v2(leftPlayers, rightPlayers) {
+          resetAll(leftPlayers, rightPlayers);
+
+          // Randomly select a left player
+          const randomLeftIndex = Math.floor(
+            Math.random() * leftPlayers.length
+          );
+          leftPlayers[randomLeftIndex].click();
+
+          const randomLeftOtherIndex = Math.floor(
+            (randomLeftIndex + Math.random() * (leftPlayers.length - 1) + 1) % leftPlayers.length
+          );
+          leftPlayers[randomLeftOtherIndex].click();
+
+          // Randomly select an available right player
+          rightPlayers.forEach((p, index) => {
+            if (p.classList.contains("player-selectable"))
+              rightPlayers[index].click();
+          });
+        }
+
+        function attachLeftPlayerListeners2v2(leftPlayers, rightPlayers) {
+          leftPlayers.forEach((player, index) => {
+            player.classList.add("player-selectable");
+
+            player.addEventListener("click", () => {
+              if (leftPlayersSelected >= 2) return;
+
+              // Disable all left players initially
+              leftPlayers.forEach((p) => {
+                p.classList.add("player-disabled");
+                p.classList.remove("player-selected");
+              });
+
+              // Select the clicked player
+              player.classList.remove("player-disabled");
+              player.classList.add("player-selected");
+              leftSelected[leftPlayersSelected] = index;
+              leftPlayersSelected++;
+
+              // Enable or disable right players based on selection
+              rightPlayers.forEach((rightPlayer, rightIndex) => {
+                rightPlayer.classList.remove(
+                  "player-disabled",
+                  "player-selectable",
+                  "player-selected"
+                );
+
+                // Enable only appropriate right players
+                if (!leftSelected.contains(rightIndex)) {
+                  rightPlayer.classList.add("player-selectable");
+                } else {
+                  rightPlayer.classList.add("player-disabled");
+                }
+              });
+              updateStartButton();
+            });
+          });
+        }
+        // Observe for changes in player cards dynamically
+        const observer2v2 = new MutationObserver(() => {
+          const leftPlayers = Array.from(
+            leftGrid.querySelectorAll(".game-player-card-inner-single")
+          );
+          const rightPlayers = Array.from(
+            rightGrid.querySelectorAll(".game-player-card-inner-single")
+          );
+
+          if (leftPlayers.length > 0 && rightPlayers.length > 0) {
+            // observer.disconnect();
+            attachLeftPlayerListeners(leftPlayers, rightPlayers);
+            attachRightPlayerListeners(rightPlayers);
+
+            // Allow external reset/randomization to function
+            window.resetAll = () => resetAll(leftPlayers, rightPlayers);
+            window.randomizeChoice = () =>
+              randomizeChoice(leftPlayers, rightPlayers);
+
+            // Initialize the start button state
+            updateStartButton();
+          }
+        });
+
         // Start observing the grids for changes
         observer.observe(leftGrid, { childList: true, subtree: true });
         observer.observe(rightGrid, { childList: true, subtree: true });
       });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-    <!-- Bootstrap parts for profile carousel -->
-    <!-- <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script> -->
+    <script>
+      // player profile functions
+      const updateToProfile = async (index) =>
+      {
+        const userId = window["loggedInUsers"][index];
+        window.currentUserID = index
+        try {
+          const response = await fetch(`/api/players/${userId}/`, {
+            method: "GET"
+          });
+          
+          if (!response.ok) {
+            throw new Error("Failed to get user info");
+          }
+          const json = await response.json()
+          console.log(json.data.avatarUrl)
+          document.getElementById("person-avatar").src = json.data.avatarUrl || "./assets/default_avatar.png"
+          document.getElementById("person-name").innerText = json.data.displayName
+        } catch (error) {
+          console.error(error.message);
+        }
 
+        try {
+          const response = await fetch(`/api/players/${userId}/matches`, {
+            method: "GET"
+          });
+          
+          if (!response.ok) {
+            goToHome()
+            throw new Error("Failed to get user matches");
+          }
+          const json = await response.json()
+          const matches = document.getElementById("person-stats")
+          if (json.data.matches.length == 0)
+            matches.innerText = "No Matches yet"
+          else
+          {
+            matches.innerHTML = ""
+            json.data.matches.forEach((match) => {
+              let content = `
+              <div>
+                ${match.players[0].username} : ${match.players[1].username} - ${match.score}
+              </div>
+              `
+              matches.innerHTML += content
+            })
+          }
+        } catch (error) {
+          console.error(error.message);
+        }
+
+        try {
+          const response = await fetch(`/api/players/`, {
+            method: "GET"
+          });
+          
+          if (!response.ok) {
+            goToHome()
+            throw new Error("Failed to get potential friends");
+          }
+
+          const friendsRequest = await fetch(`/api/players/${userId}/friends/`, {
+            method: "GET"
+          });
+          
+          if (!response.ok) {
+            goToHome()
+            throw new Error("Failed to get actual friends");
+          }
+
+          const friends = await friendsRequest.json()
+
+          const json = await response.json()
+          const players = document.getElementById("friends")
+          if (json.data.players.length == 0)
+            matches.innerText = "Noone else exists"
+          else
+          {
+            players.innerHTML = ""
+            json.data.players.forEach((player, index) => {
+              let friend_marker = friends.data.friends.find((friend) => friend.id == player.id)
+              let status = "";
+
+              if (friend_marker)
+              {
+                if (friend_marker.complete)
+                  status = "Status: " + friend_marker.status
+                else if (friend_marker.forMe)
+                  status = `
+                    <button onclick='approveFriendship(${player.id})'>Approve</button>
+                    <button onclick='denyFriendship(${player.id})'>Deny</button>
+                  `
+                else if (friend_marker.forOther)
+                  status = "Waiting on approval of friendship"
+              }
+              else
+              {
+                status = "<button onclick='requestFriendship(" + player.id + ")'>Request Friendship</button>"
+              }
+
+              let content = `
+              <div class="carousel-item ${index == 0 ? "active" : ""}">
+                <img class="friend-avatar" src="${player.avatarUrl || "./assets/default_avatar.png"}">
+                <h1 class="friend-name">${player.displayName || player.username}</h1>
+                <div class="friend-status">
+                  ${status}
+                </div>
+              </div>
+              `
+              if (player.id != userId)
+                players.innerHTML += content
+            })
+          }
+        } catch (error) {
+          console.error(error.message);
+        }
+      }
+
+      document.getElementById("newAvatar").onchange = async (e) => {
+        try{
+          const response = await fetch(`/api/players/${window.state["loggedInUsers"][window.currentUserID]}/avatar/`, {
+            method:"POST",
+            body: e.target.files[0]
+          })
+          if (!response.ok)
+            alert("Failed to upload")
+        } catch(error){
+          alert(error)
+          return;
+        }
+        alert("Succesful file upload")
+        console.log(window.currentUserID)
+        await updateToProfile(window.currentUserID)
+      }
+    </script>
+    <script>
+      const requestFriendship = async (id) => {
+        try{
+          const response = await fetch(`/api/players/${window.state["loggedInUsers"][window.currentUserID]}/friends/`, {
+            method:"POST",
+            body: JSON.stringify({friendUserId: id})
+          })
+          if (!response.ok)
+            alert("Failed to send request")
+        } catch(error){
+          alert(error)
+          return;
+        }
+        await updateToProfile(window.currentUserID)
+      }
+
+      const approveFriendship = async (id) => {
+        try{
+          const response = await fetch(`/api/players/${window.state["loggedInUsers"][window.currentUserID]}/friends/manage/`, {
+            method:"POST",
+            body: JSON.stringify({friendUserId: id, action: "approve"})
+          })
+          if (!response.ok)
+            alert("Failed to approve")
+        } catch(error){
+          alert(error)
+          return;
+        }
+        await updateToProfile(window.currentUserID)
+      }
+
+      const denyFriendship = async (id) => {
+        try{
+          const response = await fetch(`/api/players/${window.state["loggedInUsers"][window.currentUserID]}/friends/manage/`, {
+            method:"POST",
+            body: JSON.stringify({friendUserId: id, action: "approve"})
+          })
+          if (!response.ok)
+            alert("Failed to deny")
+        } catch(error){
+          alert(error)
+          return;
+        }
+        await updateToProfile(window.currentUserID)
+      }
+    </script>
+    <script>
+      function open42Auth() {
+            // Popup window configuration
+            const width = 600;
+            const height = 700;
+            const left = (window.innerWidth - width) / 2;
+            const top = (window.innerHeight - height) / 2;
+
+            // Open popup to your Django redirect view
+            const popup = window.open(
+                'https://localhost:8443/api/oauth/redirect',  // This should match your Django URL pattern
+                '42 Authorization',
+            );
+      }
+            
+
+    </script>
   </body>
 </html>
