@@ -6,6 +6,7 @@ function render2v2GameStart() {
     console.error("Error: 4 people needed for this mode");
     alert("Error: 4 people needed for this mode");
     goToLobby();
+    updateHistory('lobby');
     return;
   }
 
@@ -56,4 +57,5 @@ function render2v2GameStart() {
   });
 
   gameStartSection.style.display = "block";
+  updateHistory('gamestart2v2');
 }

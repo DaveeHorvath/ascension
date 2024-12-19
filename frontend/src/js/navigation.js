@@ -159,7 +159,7 @@ function goToGameStart() {
   renderGameStart();
 }
 
-function goToTournament() {
+async function goToTournament() {
   lobby.style.display = "none";
   gameStart.style.display = "none";
   overlay.style.display = "none";
@@ -175,10 +175,10 @@ function goToTournament() {
   tournamentResults.style.display = "none";
   tournamentStatistics.style.display = "none";
 
-  createTournament();
+  await createTournament();
 }
 
-function goToLoadedTournament(id) {
+async function goToLoadedTournament(id) {
   lobby.style.display = "none";
   gameStart.style.display = "none";
   overlay.style.display = "none";
@@ -194,7 +194,7 @@ function goToLoadedTournament(id) {
   tournamentResults.style.display = "none";
   tournamentStatistics.style.display = "none";
 
-  loadTournament(id);
+  await loadTournament(id);
   updateHistory(goToLoadedTournament);
 }
 
