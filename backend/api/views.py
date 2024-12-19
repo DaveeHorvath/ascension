@@ -572,6 +572,8 @@ def get_tournament(request, id):
 def find_ids_from_sessions(request):
     found_session_ids = []
     for key, value in request.COOKIES.items():
+        if not key.startswith("session_"):
+            continue
         try:
             decrypted_value = decrypt_session_value(value)
             if decrypted_value and 'id' in decrypted_value:
