@@ -662,7 +662,7 @@ window.startGame = async () => {
     // settging for the AI
     let timeIntervalAi = 1;  // must to be 1 according to the subject
     let clockAi = new THREE.Clock();
-    let deltaTimeAi = 0;
+    let deltaTimeAi = 1.01;
     let r0 = {x: ball1.position.x, y: ball1.position.y};
     let r1 = {x: player1.position.x, y: player1.position.y};
     //let r2 = {x: player2.position.x, y: player2.position.y};
@@ -798,7 +798,7 @@ window.startGame = async () => {
             }
             keyEventHandler() // check for key presses
             // move the players with deltatime
-            player1.position.y += player1Velocity * delta
+            player1.position.y += player1Velocity * delta * (ai == 1 ? window.customs.difficulty : 1);
             player2.position.y += player2Velocity * delta
             if (GameType.Quatro == gameType){
                 player3.position.y += player3Velocity * delta

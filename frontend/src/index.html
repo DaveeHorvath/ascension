@@ -711,10 +711,10 @@
         <div class="setting-group">
           <label class="setting-label" for="difficulty">AI Difficulty</label>
           <select class="setting-select" id="difficulty" onchange="updateDifficulty(this.value)">
-            <option value="2">Easy</option>
-            <option value="1.5" selected>Normal</option>
-            <option value="1">Hard</option>
-            <option value="0.75">Impossible</option>
+            <option value="0.25">Easy</option>
+            <option value="0.5" selected>Normal</option>
+            <option value="0.75">Hard</option>
+            <option value="1">Impossible</option>
           </select>
         </div>
 
@@ -894,7 +894,7 @@
       }
 
       function updateDifficulty(value) {
-          window.customs.difficulty = parseInt(value);
+          window.customs.difficulty = parseFloat(value);
       }
 
       function updateWinCondition(value) {
