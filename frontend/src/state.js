@@ -38,7 +38,8 @@ window.customs = {
     padelColorSecond: 0x4c0000,
     borderColor: 0x004c00,
     difficulty: 1,
-    winCondition: 5
+    winCondition: 5,
+    gameMode: 0, // new game mode when players could freeze opponents padel
 }  //for custom game
 
 // window.singleGameState = {   // for 4 player game  // this is working example

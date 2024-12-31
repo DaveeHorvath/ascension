@@ -170,11 +170,11 @@ async function createTournament() {
   }
 
   const backToMenuButton = document.getElementById("backToMenu");
-  backToMenuButton.addEventListener("click", function () {
+  backToMenuButton.onclick = function () {
     resetTournament();
     goToLobby();
     updateHistory("lobby");
-  });
+  };
 }
 
 async function loadTournament(tournamentId) {
@@ -499,10 +499,11 @@ async function loadTournament(tournamentId) {
   }
 
   const backToMenuButton = document.getElementById("backToMenu");
-  backToMenuButton.addEventListener("click", function () {
+  backToMenuButton.onclick = function () {
     resetTournament();
     goToLobby();
-  });
+    updateHistory("lobby");
+  };
 }
 
 const calculateTournamentStats = (tournament) => {

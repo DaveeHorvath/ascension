@@ -721,9 +721,17 @@
         <div class="setting-group">
           <label class="setting-label" for="winCondition">Win Condition</label>
           <select class="setting-select" id="winCondition" onchange="updateWinCondition(this.value)">
-            <option value="5">Up to 5</option>
-            <option value="11" selected>Up to 11</option>
+            <option value="5" selected>Up to 5</option>
+            <option value="11">Up to 11</option>
             <option value="21">Up to 21</option>
+          </select>
+        </div>
+
+        <div class="setting-group">
+          <label class="setting-label" for="gameMode">Game mode</label>
+          <select class="setting-select" id="gameMode" onchange="updateGameMode(this.value)">
+            <option value="0" selected>Normal</option>
+            <option value="1">Freezer</option>
           </select>
         </div>
 
@@ -899,6 +907,10 @@
 
       function updateWinCondition(value) {
           window.customs.winCondition = parseInt(value);
+      }
+
+      function updateGameMode(value) {
+          window.customs.gameMode = parseInt(value);
       }
     </script>
   </body>
