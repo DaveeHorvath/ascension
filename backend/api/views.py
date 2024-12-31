@@ -1298,7 +1298,7 @@ def oauth_callback(request):
                 }
             )
             fetch_avatar_from_42(user, user_data)
-            response.set_cookie(session_key, session_value, httponly=True)
+            response.set_cookie(session_key, session_value, httponly=True, secure=True, max_age=3600*24*7)
         #close popup
         return response
 

@@ -240,6 +240,7 @@ const requestAddCup = async (data) => {
     try {
         const response = await fetch("/api/tournaments/", {
             method: "POST",
+            headers: {'Content-Type': 'application/json',},
             body: JSON.stringify(data)
         })
         console.log("response=", response);
@@ -263,6 +264,7 @@ const requestPatchMatch = async (id, data) => {
     try {
         const response = await fetch("/api/matches/" + id + "/", {
             method: "PATCH",
+            headers: {'Content-Type': 'application/json',},
             body: JSON.stringify(data)
         })
         console.log("response=", response);

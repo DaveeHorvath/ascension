@@ -85,7 +85,7 @@ let userinfo = {
 }
 
 window.updateRecentGames = () => {
-    let res = fetch("localhost:8000/recentMatches")
+    let res = fetch("/recentMatches")
     if (res.ok)
     {
         window.state.recentMatches = res.json();

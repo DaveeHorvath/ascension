@@ -36,8 +36,8 @@ const requestSignUp = async () => {
   try {
     const response = await fetch("/api/players/", {
       method: "POST",
-	  headers: {
-        "Content-Type": "application/json",
+      headers: {
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         username,
@@ -86,6 +86,7 @@ const requestLogin = async (_username, _password) => {
   try {
     const response = await fetch("/api/auth/login/", {
       method: "POST",
+      headers: {'Content-Type': 'application/json',},
       body: JSON.stringify({
         username: _username,
         password: _password,

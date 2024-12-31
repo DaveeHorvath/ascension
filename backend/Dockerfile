@@ -9,7 +9,10 @@ ENV PYTHONUNBUFFERED 1
 RUN apt-get update && apt-get install -y \
 	gcc \
 	libpq-dev \
-	netcat-openbsd
+	netcat-openbsd \
+	xxd \
+	jq \
+	curl
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/*
 
@@ -25,6 +28,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the entire project into the container
 COPY . /code/
+
+#Copy the environment setup script into the container
+COPY ./tools/setup_env.sh /usr/local/bin/setup_env.sh
+RUN chmod +x /usr/local/bin/setup_env.sh
 
 # Copy the entrypoint script into the container
 COPY ./tools/entrypoint.sh /usr/local/bin/entrypoint.sh

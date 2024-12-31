@@ -6,6 +6,7 @@ const requestFriendship = async (id) => {
       }/friends/`,
       {
         method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ friendUserId: id }),
       }
     );
@@ -25,6 +26,7 @@ const approveFriendship = async (id) => {
       }/friends/manage/`,
       {
         method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ friendUserId: id, action: "approve" }),
       }
     );
@@ -44,6 +46,7 @@ const denyFriendship = async (id) => {
       }/friends/manage/`,
       {
         method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ friendUserId: id, action: "approve" }),
       }
     );

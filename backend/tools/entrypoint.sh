@@ -2,6 +2,7 @@
 
 # Exit immediately if a command exits with a non-zero status
 set -e
+source /usr/local/bin/setup_env.sh
 
 # Wait for the PostgreSQL server to be ready
 echo "Waiting for PostgreSQL..."

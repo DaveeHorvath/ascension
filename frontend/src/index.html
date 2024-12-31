@@ -812,7 +812,7 @@
 
         // Open popup to your Django redirect view
         const popup = window.open(
-          "https://localhost:8443/api/oauth/redirect", // This should match your Django URL pattern
+          "/api/oauth/redirect",
           "42 Authorization"
         );
         const timer = setInterval(async () => {
