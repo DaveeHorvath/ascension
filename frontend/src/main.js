@@ -19,7 +19,7 @@ const inntervalTorus = 4;
 // Inconsistency due to different conventions on backend and frontend
 
 // in the code the game 2x2
-// players 3D objects orger is player1, player2, player3, player4
+// players 3D objects order is player1, player2, player3, player4
 // 1 - right, 2 - left, 3 - left, 4 - right
 // but for userIds the order is [left, left, right, right]
 
